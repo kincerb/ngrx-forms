@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 import { environment } from 'src/environments/environment';
+import { routing } from './app.routing';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { StoreModule } from '@ngrx/store';
@@ -21,6 +22,7 @@ import { HomeComponent } from './home/home.component';
     FlexLayoutModule,
     MaterialModule,
     ReactiveFormsModule,
+    routing,
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
