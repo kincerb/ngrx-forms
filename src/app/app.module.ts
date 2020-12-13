@@ -11,9 +11,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { NavigationComponent } from './navigation/navigation.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, NavigationComponent],
+  declarations: [AppComponent, NavigationComponent, HomeComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

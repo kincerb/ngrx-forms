@@ -1,0 +1,28 @@
+mat-toolbar {
+  padding: 10px;
+  margin-bottom: 20px;
+}
+mat-icon {
+  vertical-align: middle;
+}
+a {
+  color: lightgray;
+}
+
+a:hover,
+a:active {
+  color: darkgray;
+}
+
+.navigation-link {
+  list-style: none;
+  font-size: small;
+}
+
+.navigation-link.active {
+  color: white;
+}
+
+.navigation-logo {
+  font-size: large;
+}
