@@ -14,9 +14,18 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { NavigationComponent } from './navigation/navigation.component';
 import { HomeComponent } from './home/home.component';
 import { ServersComponent } from './servers/servers.component';
+import { DynamicFormComponent } from './servers/dynamic-form.component';
+import { DynamicFormQuestionComponent } from './servers/dynamic-form-question.component';
 
 @NgModule({
-  declarations: [AppComponent, NavigationComponent, HomeComponent, ServersComponent],
+  declarations: [
+    AppComponent,
+    NavigationComponent,
+    HomeComponent,
+    ServersComponent,
+    DynamicFormComponent,
+    DynamicFormQuestionComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

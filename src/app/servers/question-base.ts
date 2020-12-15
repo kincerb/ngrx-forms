@@ -1,4 +1,4 @@
-export class ServerOptionsBase<T> {
+export class QuestionBase<T> {
   value: T;
   key: string;
   label: string;
@@ -40,18 +40,18 @@ export class ServerOptionsBase<T> {
   }
 }
 
-export class BooleanOption extends ServerOptionsBase<string> {
+export class BooleanQuestion extends QuestionBase<string> {
   controlType = 'boolean';
 }
 
-export class SelectOption extends ServerOptionsBase<string> {
+export class SelectQuestion extends QuestionBase<string> {
   controlType = 'select';
 }
 
-export class SelectMultipleOption extends ServerOptionsBase<string> {
+export class SelectMultipleQuestion extends QuestionBase<string> {
   controlType = 'select-multiple';
 }
 
-export class TextboxOption extends ServerOptionsBase<string> {
+export class TextboxQuestion extends QuestionBase<string> {
   controlType = 'textbox';
 }

@@ -1,24 +1,26 @@
 import { Injectable } from '@angular/core';
+import { of } from 'rxjs';
 
 import {
-  ServerOptionsBase,
-  BooleanOption,
-  SelectOption,
-  SelectMultipleOption,
-  TextboxOption,
-} from './servers-options-base';
+  QuestionBase,
+  BooleanQuestion,
+  SelectQuestion,
+  SelectMultipleQuestion,
+  TextboxQuestion,
+} from './question-base';
 
 @Injectable()
-export class FormOptionsService {
-  get Options() {
-    const options: ServerOptionsBase<string>[] = [
-      new TextboxOption({
+export class QuestionService {
+  // tslint:disable-next-line: typedef
+  getQuestions() {
+    const questions: QuestionBase<string>[] = [
+      new TextboxQuestion({
         key: 'name',
         label: 'Server hostname',
         required: true,
         order: 1,
       }),
-      new SelectOption({
+      new SelectQuestion({
         key: 'platform',
         label: 'Server platform',
         required: true,
@@ -29,13 +31,13 @@ export class FormOptionsService {
         ],
         order: 2,
       }),
-      new BooleanOption({
+      new BooleanQuestion({
         key: 'virtual',
         label: 'Virtual server',
         required: true,
         order: 3,
       }),
     ];
-    return of(options.sort((a, b) => a.order - b.order));
+    return of(questions.sort((a, b) => a.order - b.order));
   }
 }

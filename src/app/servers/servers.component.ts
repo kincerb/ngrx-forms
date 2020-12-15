@@ -1,12 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { QuestionService } from './question.service';
+import { QuestionBase } from './question-base';
 
 @Component({
   selector: 'app-servers',
   templateUrl: './servers.component.html',
   styleUrls: ['./servers.component.css'],
+  providers: [QuestionService],
 })
 export class ServersComponent implements OnInit {
-  constructor() {}
+  questions$: Observable<QuestionBase<any>[]>;
 
-  ngOnInit(): void {}
+  constructor(service: QuestionService) {
+    this.questions$ = service.getQuestions();
+  }
 }

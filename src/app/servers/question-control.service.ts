@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { ServerOptionsBase } from './servers-options-base';
+import { QuestionBase } from './question-base';
 
 @Injectable()
-export class ServerOptionsService {
+export class QuestionControlService {
   constructor() {}
 
   // tslint:disable-next-line: typedef
-  toFormGroup(options: ServerOptionsBase<string>[]) {
+  toFormGroup(options: QuestionBase<string>[]) {
     const group: any = {};
 
     options.forEach((option) => {

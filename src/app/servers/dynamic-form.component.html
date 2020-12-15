@@ -1,0 +1,22 @@
+<div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <mat-vertical-stepper #stepper>
+      <mat-step [stepControl]="form">
+        <div *ngFor="let question of questions" class="form-row">
+          <app-question [question]="question" [form]="form"></app-question>
+        </div>
+      </mat-step>
+    </mat-vertical-stepper>
+    <button
+      mat-raised-button
+      color="accent"
+      type="submit"
+      [disabled]="!form.valid"
+    >
+      Create
+    </button>
+  </form>
+  <div *ngIf="payLoad" class="form-row">
+    <strong>Saved the following values</strong><br />{{ payLoad }}
+  </div>
+</div>
