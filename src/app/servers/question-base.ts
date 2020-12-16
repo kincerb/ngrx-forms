@@ -3,7 +3,8 @@ export class QuestionBase<T> {
   key: string;
   label: string;
   hint: string;
-  tooltip: string;
+  description: string;
+  tooltipName: string;
   required: boolean;
   order: number;
   controlType: string;
@@ -17,7 +18,8 @@ export class QuestionBase<T> {
       key?: string;
       label?: string;
       hint?: string;
-      tooltip?: string;
+      description?: string;
+      tooltipName?: string;
       required?: boolean;
       order?: number;
       controlType?: string;
@@ -30,7 +32,8 @@ export class QuestionBase<T> {
     this.key = options.key;
     this.label = options.label;
     this.hint = options.hint;
-    this.tooltip = options.tooltip;
+    this.description = options.description;
+    this.tooltipName = options.tooltipName;
     this.required = options.required;
     this.order = options.order === undefined ? 1 : options.order;
     this.controlType = options.controlType || '';
