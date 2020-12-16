@@ -8,13 +8,13 @@ export class QuestionControlService {
   constructor() {}
 
   // tslint:disable-next-line: typedef
-  toFormGroup(options: QuestionBase<string>[]) {
+  toFormGroup(questions: QuestionBase<string>[]) {
     const group: any = {};
 
-    options.forEach((option) => {
-      group[option.key] = option.required
-        ? new FormControl(option.value || '', Validators.required)
-        : new FormControl(option.value || '');
+    questions.forEach((question) => {
+      group[question.key] = question.required
+        ? new FormControl(question.value || '', Validators.required)
+        : new FormControl(question.value || '');
     });
     return new FormGroup(group);
   }
