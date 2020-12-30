@@ -13,15 +13,16 @@ import { QuestionControlService } from './question-control.service';
 export class DynamicFormComponent implements OnInit {
   @Input() questions: QuestionBase<string>[] = [];
   form: FormGroup;
-  payload = '';
+  payLoad = '';
 
-  constructor(private controlService: FormControlsService) {}
+  constructor(private questionControlService: QuestionControlService) {}
 
   ngOnInit(): void {
-    this.form = this.controlService.toFormGroup(this.questions);
+    this.form = this.questionControlService.toFormGroup(this.questions);
   }
 
   onSubmit(): void {
-    this.payload = JSON.stringify(this.form.getRawValue());
+    this.payLoad = JSON.stringify(this.form.getRawValue());
+    console.log(this.payLoad);
   }
 }

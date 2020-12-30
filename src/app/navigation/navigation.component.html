@@ -1,17 +1,26 @@
 <mat-toolbar class="mat-elevation-z6" color="primary">
   <div fxLayout="row" fxLayoutAlign="start center" fxFlexFill>
-    <div
-      fxFlex="10%"
-      fxFlex.lt-xl="15%"
-      fxFlex.lt-lg="20%"
-      fxFlex.lt-md="10%"
-    ></div>
-    <div
-      fxFlex="80%"
-      fxFlex.lt-xl="75"
-      fxFlex.lt-lg="70%"
-      fxFlex.lt-md="80%"
-    ></div>
+    <div fxFlex="15%">
+      <a
+        class="navigation-logo"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLink="/"
+      >
+        NGRX Forms</a
+      >
+    </div>
+    <div fxFlex="75%" fxLayoutGap="10px">
+      <nav>
+        <a
+          class="navigation-link"
+          routerLink="/server-create"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Add</a
+        >
+      </nav>
+    </div>
     <div fxFlex="10%" fxLayoutAlign="end center"></div>
   </div>
 </mat-toolbar>

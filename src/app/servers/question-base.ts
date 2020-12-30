@@ -43,8 +43,8 @@ export class QuestionBase<T> {
   }
 }
 
-export class BooleanQuestion extends QuestionBase<string> {
-  controlType = 'boolean';
+export class CheckboxQuestion extends QuestionBase<string> {
+  controlType = 'checkbox';
 }
 
 export class SelectQuestion extends QuestionBase<string> {

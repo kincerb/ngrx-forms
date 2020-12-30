@@ -1,22 +1,63 @@
 <div>
-  <form (ngSubmit)="onSubmit()" [formGroup]="form">
-    <mat-vertical-stepper #stepper>
+  <mat-vertical-stepper #stepper>
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
       <mat-step [stepControl]="form">
         <div *ngFor="let question of questions" class="form-row">
-          <app-question [question]="question" [form]="form"></app-question>
+          <mat-form-field appearance="fill" [ngSwitch]="question.controlType">
+            <mat-label [attr.for]="question.key">{{
+              question.label
+            }}</mat-label>
+            <input
+              matInput
+              [placeholder]="question.label"
+              *ngSwitchCase="'textbox'"
+              [formControlName]="question.key"
+              [id]="question.key"
+              [type]="question.type"
+              [required]="question.required"
+            />
+            <mat-select
+              *ngSwitchCase="'select'"
+              [id]="question.key"
+              [formControlName]="question.key"
+              [required]="question.required"
+            >
+              <mat-option
+                *ngFor="let opt of question.options"
+                [value]="opt.key"
+              >
+                {{ opt.value }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button
+            mat-icon-button
+            color="accent"
+            #tooltip="matTooltip"
+            [matTooltip]="question.description"
+            matTooltipPosition="right"
+          >
+            <mat-icon fontSet="material-icons-outlined">help_outline </mat-icon>
+          </button>
         </div>
+        <button mat-raised-button matStepperNext>Next</button>
       </mat-step>
-    </mat-vertical-stepper>
-    <button
-      mat-raised-button
-      color="accent"
-      type="submit"
-      [disabled]="!form.valid"
-    >
-      Create
-    </button>
-  </form>
-  <div *ngIf="payLoad" class="form-row">
-    <strong>Saved the following values</strong><br />{{ payLoad }}
-  </div>
+      <mat-step [stepControl]="form">
+        <ng-template matStepLabel>Review & Create</ng-template>
+        <button mat-raised-button (click)="(form.reset); (stepper.reset)">
+          Reset
+        </button>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button
+          mat-raised-button
+          color="accent"
+          type="submit"
+          [disabled]="!form.valid"
+          (click)="onSubmit(); form.reset(); stepper.reset()"
+        >
+          Create
+        </button>
+      </mat-step>
+    </form>
+  </mat-vertical-stepper>
 </div>

@@ -3,7 +3,6 @@ import { of } from 'rxjs';
 
 import {
   QuestionBase,
-  BooleanQuestion,
   SelectQuestion,
   SelectMultipleQuestion,
   TextboxQuestion,
@@ -17,25 +16,24 @@ export class QuestionService {
       new TextboxQuestion({
         key: 'name',
         label: 'Server hostname',
+        description:
+          'Enter the server with domain name, ex. elvmt0048.nwie.net',
         required: true,
+        type: 'text',
         order: 1,
       }),
       new SelectQuestion({
         key: 'platform',
         label: 'Server platform',
+        description: 'Choose the OS platform from available choices',
         required: true,
+        type: 'text',
         options: [
           { key: 'linux', value: 'Linux' },
           { key: 'windows', value: 'Windows' },
           { key: 'macos', value: 'MacOS - Really?' },
         ],
         order: 2,
-      }),
-      new BooleanQuestion({
-        key: 'virtual',
-        label: 'Virtual server',
-        required: true,
-        order: 3,
       }),
     ];
     return of(questions.sort((a, b) => a.order - b.order));

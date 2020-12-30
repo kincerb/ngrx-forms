@@ -1,32 +1,31 @@
 <div [formGroup]="form">
   <mat-form-field
-    [ngSwitch]="question.controlType"
     appearance="fill"
-    #changeMeToolTip="matTooltip"
-    matTooltip="question.tooltip"
+    [ngSwitch]="question.controlType"
+    #`${question.tooltipName}`="matTooltip"
+    matTooltip="question.description"
     matTooltipPosition="right"
   >
-    <mat-label>{{ question.label }}</mat-label>
+    <mat-label [attr.for]="question.key">{{ question.label }}</mat-label>
     <input
       matInput
-      [placeholder]="question.placeholder"
+      [placeholder]="question.label"
       *ngSwitchCase="'textbox'"
       [formControlName]="question.key"
       [id]="question.key"
       [type]="question.type"
       [required]="question.required"
     />
-    <select
+    <mat-select
       *ngSwitchCase="'dropdown'"
       [id]="question.key"
       [formControlName]="question.key"
+      [required]="question.required"
     >
-      <option *ngFor="let opt of question.options" [value]="opt.key">
+      <mat-option *ngFor="let opt of question.options" [value]="opt.key">
         {{ opt.value }}
-      </option>
-    </select>
+      </mat-option>
+    </mat-select>
   </mat-form-field>
-  <mat-icon fontSet="material-icons-outlined" (click)="changeMeToolTip.toggle()"
-    >help_outline
-  </mat-icon>
+  <mat-icon fontSet="material-icons-outlined">help_outline </mat-icon>
 </div>

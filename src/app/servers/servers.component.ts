@@ -10,7 +10,7 @@ import { QuestionBase } from './question-base';
   styleUrls: ['./servers.component.css'],
   providers: [QuestionService],
 })
-export class ServersComponent implements OnInit {
+export class ServersComponent {
   questions$: Observable<QuestionBase<any>[]>;
 
   constructor(service: QuestionService) {
